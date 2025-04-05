@@ -12,9 +12,8 @@
 </head>
 
 <body>
-  <!-- <audio autoplay="true">
-    <source src="audio/HAPPY BIRTHDAY TO YOU.mp3" type="audio/mpeg">
-  </audio> -->
+  <audio id="birthday-audio" src="audio/HAPPY BIRTHDAY TO YOU.mp3" preload="auto" loop hidden></audio>
+
 
   <canvas id="confetti"></canvas>
 
@@ -147,24 +146,23 @@
         <img src="img/zahva (16).jpg" alt="">
         <img src="img/zahva (17).jpg" alt="">
         <img src="img/zahva (18).jpg" alt="">
-        <img src="img/zahva (1).jpg" alt="">
-        <img src="img/zahva (2).jpg" alt="">
-        <img src="img/zahva (3).jpg" alt="">
-        <img src="img/zahva (4).jpg" alt="">
-        <img src="img/zahva (5).jpg" alt="">
-        <img src="img/zahva (6).jpg" alt="">
-        <img src="img/zahva (7).jpg" alt="">
-        <img src="img/zahva (8).jpg" alt="">
-        <img src="img/zahva (9).jpg" alt="">
-        <img src="img/zahva (10).jpg" alt="">
-        <img src="img/zahva (11).jpg" alt="">
-        <img src="img/zahva (12).jpg" alt="">
-        <img src="img/zahva (13).jpg" alt="">
-        <img src="img/zahva (14).jpg" alt="">
-        <img src="img/zahva (15).jpg" alt="">
-        <img src="img/zahva (16).jpg" alt="">
-        <img src="img/zahva (17).jpg" alt="">
-        <img src="img/zahva (18).jpg" alt="">
+        <img src="img/zahva (19).jpg" alt="">
+        <img src="img/zahva (20).jpg" alt="">
+        <img src="img/zahva (21).jpg" alt="">
+        <img src="img/zahva (22).jpg" alt="">
+        <img src="img/zahva (23).jpg" alt="">
+        <img src="img/zahva (24).jpg" alt="">
+        <img src="img/zahva (25).jpg" alt="">
+        <img src="img/zahva (26).jpg" alt="">
+        <img src="img/zahva (27).jpg" alt="">
+        <img src="img/zahva (28).jpg" alt="">
+        <img src="img/zahva (29).jpg" alt="">
+        <img src="img/zahva (30).jpg" alt="">
+        <img src="img/zahva (31).jpg" alt="">
+        <img src="img/zahva (32).jpg" alt="">
+        <img src="img/zahva (33).jpg" alt="">
+        <img src="img/zahva (34).jpg" alt="">
+        <img src="img/zahva (35).jpg" alt="">
       </div>
     </div>
     <div class="nine">
@@ -282,11 +280,35 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Musik otomatis
+    const audio = document.getElementById("birthday-audio");
+
+    // Ini untuk bypass autoplay policy di beberapa browser
+    function playAudio() {
+      audio.play().catch((e) => {
+        console.log("Autoplay diblokir, akan mencoba lagi setelah interaksi.");
+      });
+      document.removeEventListener("click", playAudio);
+    }
+
+    // Mainkan musik saat user pertama kali klik
+    document.addEventListener("click", playAudio);
+
+    // Atau coba langsung mainkan jika browser mengizinkan
+    audio.play().catch(() => {
+      console.log("Menunggu interaksi user...");
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     const zahvasContainer = document.querySelector(".zahvas");
 
     // Buat daftar gambar (setiap gambar muncul 2x)
     let images = [];
-    for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 35; i++) {
       images.push(`img/zahva (${i}).jpg`);
       images.push(`img/zahva (${i}).jpg`);
     }
